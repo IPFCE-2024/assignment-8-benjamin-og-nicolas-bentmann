@@ -9,12 +9,13 @@ node* isort(node *list) {
     node* newList = list;
 
     list->next = NULL;
-
+    /*Ydrer-løkke, går gennem alle noder i oldList, hvor
+    de sættes ind i newList*/
     while (oldList != NULL)
     {
         node* cursor = newList;
         node* preCursor = NULL;
-        while (cursor != NULL)
+        while (cursor != NULL) /*Indrer-løkke, finder den rigtige position i newList*/
         {
             if (oldList->data > cursor->data)
             {
@@ -40,6 +41,6 @@ node* isort(node *list) {
 
         oldList = p;
     }
-    return newList;
+    return newList; /*Her returneres den nye sorterede liste.*/
 }
 
