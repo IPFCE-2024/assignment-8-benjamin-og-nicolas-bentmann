@@ -68,8 +68,8 @@ void push(int element, node **head) {
 
 /*Pop funktionen*/
 int pop(node **head) {
-    if (*head == NULL); {
-        printf("Uhadada stakken er jo tom?!?!");
+    if (*head == NULL) {
+        printf("Uhadada stakken er jo tom?!?!\n");
         return -1;
     }
 
@@ -85,13 +85,31 @@ return gemt;
 
 void enqueueStack(queue *q, int x) {
     push(x, &(q->front));
-    if (empty(q))
-    {
-        q->rear = q->front;
-    }
     q->size++;
 }
 
 int dequeueStack(queue *q) {
-    return -1;
+    if (empty(q))
+    {
+        printf("the stack is empty");
+        return -1;
+    }
+
+    stack s;
+    s.head = NULL;
+
+    for (int i = q->size; i > 1; i--)
+    {
+        push(pop(&(q->front)), &(s.head));
+    }
+    
+
+    int buf = pop(&(q->front));
+
+    for (int i = 0; i < q->size - 1; i++)
+    {
+        push(pop(&(s.head)), &(q->front));
+    }
+    q->size--;
+    return buf;
 }

@@ -22,4 +22,17 @@ int main(){
     enqueueStack(&q, 2);
 
     drawQueue(&q);
+
+    printf("%d\n", dequeueStack(&q));
+    drawQueue(&q);
+    printf("%d\n", dequeueStack(&q));
+    drawQueue(&q);
+    printf("%d\n", dequeueStack(&q));
+    drawQueue(&q);
+
+    enqueueStack(&q, 98);
+    enqueueStack(&q, 20);
+
+    drawQueue(&q);
+    
 }
