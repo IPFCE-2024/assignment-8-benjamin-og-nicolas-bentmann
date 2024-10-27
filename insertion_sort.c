@@ -1,6 +1,8 @@
 #include "insertion_sort.h"
 #include <stdlib.h>
 
+//Opgave 2.
+
 node* isort(node *list) {
 
     node* oldList = list->next;
