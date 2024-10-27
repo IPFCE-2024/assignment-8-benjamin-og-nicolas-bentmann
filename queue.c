@@ -1,4 +1,5 @@
 #include "queue.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 
@@ -31,7 +32,6 @@ void enqueue(queue *q, int x) {
     }
     q->rear = p;
     q->size++;
-    return;
 }
 
 int dequeue(queue *q) {
@@ -57,10 +57,10 @@ int dequeue(queue *q) {
 // Opgave 4
 /*Push funktionen*/
 void push(int element, node **head) {
-    node *ny_node = (node*)malloc(sizeof (double)); //Laver noden
+    node *ny_node = (node*)malloc(sizeof (node)); //Laver noden
 
     ny_node->data = element;
-    ny_node->data = *head;
+    ny_node->next = *head;
 
     *head = ny_node;
 
@@ -84,7 +84,12 @@ return gemt;
 }
 
 void enqueueStack(queue *q, int x) {
-
+    push(x, &(q->front));
+    if (empty(q))
+    {
+        q->rear = q->front;
+    }
+    q->size++;
 }
 
 int dequeueStack(queue *q) {
