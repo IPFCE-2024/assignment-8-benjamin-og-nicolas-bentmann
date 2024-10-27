@@ -55,6 +55,7 @@ int dequeue(queue *q) {
 }
 
 // Opgave 4
+/*Push funktionen*/
 void push(int element, node **head) {
     node *ny_node = (node*)malloc(sizeof (double)); //Laver noden
 
@@ -65,8 +66,21 @@ void push(int element, node **head) {
 
 }
 
+/*Pop funktionen*/
 int pop(node **head) {
-    return -1;
+    if (*head == NULL); {
+        printf("Uhadada stakken er jo tom?!?!");
+        return -1;
+    }
+
+int gemt = (*head)->data;
+
+node *midlertidig = *head;
+*head = (*head)->next;
+
+free(midlertidig);
+
+return gemt;
 }
 
 void enqueueStack(queue *q, int x) {
