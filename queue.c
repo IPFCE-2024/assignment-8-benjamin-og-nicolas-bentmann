@@ -56,6 +56,12 @@ int dequeue(queue *q) {
 
 // Opgave 4
 void push(int element, node **head) {
+    node *ny_node = (node*)malloc(sizeof (double)); //Laver noden
+
+    ny_node->data = element;
+    ny_node->data = *head;
+
+    *head = ny_node;
 
 }
 
